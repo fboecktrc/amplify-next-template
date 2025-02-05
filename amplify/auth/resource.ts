@@ -7,5 +7,11 @@ import { defineAuth } from "@aws-amplify/backend";
 export const auth = defineAuth({
   loginWith: {
     email: true,
+    callbackUrls: [
+      "http://localhost:3000/auth/google/callback",
+      "app://",
+    ],
+    logoutUrls: ["http://localhost:3000/", "app://"],
   },
+  groups: ["Admins", "Managers", "Users"],
 });
